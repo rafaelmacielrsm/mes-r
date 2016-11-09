@@ -1,24 +1,14 @@
-# README
+About this project
+-------------------------
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a product of the internship discipline of [UFPI](http://ufpi.br/), in which, the students are supposed to use the good practices of software enginering and create a solution  for a problem in a company.
 
-Things you may want to cover:
+This solution is a  webapp to manager the inventory and sales of a small company.
 
-* Ruby version
+----
 
-* System dependencies
+How to Setup Environment
+-------------------------
+[Tutorial (in portuquese)](https://docs.google.com/presentation/d/1jQ3uCDXVJ9udxyBbFLRtwIyUmK6H6IOwzpibuU_zc-o/edit?usp=sharing)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+----------
