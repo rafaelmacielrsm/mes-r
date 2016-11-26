@@ -1,9 +1,9 @@
 About this project
 -------------------------
 
-This project is a product of the internship discipline of [UFPI](http://ufpi.br/), in which, the students are supposed to use the good practices of software enginering and create a solution  for a problem in a company.
+This project is a product of the internship discipline of [UFPI](http://ufpi.br/), in which, the students are supposed to use the good practices of software engineering and create a solution for a problem in a company.
 
-This solution is a  webapp to manager the inventory and sales of a small company.
+This solution is a webapp to manager the inventory and sales of a small company.
 
 How to Setup Environment
 -------------------------
