@@ -1,0 +1,22 @@
+.nav-wrapper{
+  background-color: $app-primary-color-darker;
+  ul{
+    a{
+      &:hover{
+        background-color: darken($app-primary-color-darker, 10);
+      }
+    }
+  }
+}
+
+.btn, .btn-large{
+  background-color: $asc-color;
+
+  &:hover{
+    background-color: $asc-color-darker;
+  }
+
+  &:focus{
+    background-color: $asc-color;
+  }
+}

@@ -1,0 +1,13 @@
+body{
+  min-height: 100vh;
+  background-color: $background-color;
+  // background-color: $app-primary-color;
+}
+
+h1{
+  color: $dark-text-color-primary;
+}
+
+table th, table td{
+  color: $dark-text-color-primary;
+}

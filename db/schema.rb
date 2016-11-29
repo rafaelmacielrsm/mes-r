@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126122630) do
+ActiveRecord::Schema.define(version: 20161128180758) do
+
+  create_table "batches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id"
+    t.string   "barcode"
+    t.integer  "quantity"
+    t.date     "expiration_date"
+    t.decimal  "cost",            precision: 8, scale: 2
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["barcode"], name: "index_batches_on_barcode", using: :btree
+    t.index ["product_id"], name: "index_batches_on_product_id", using: :btree
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -31,6 +43,8 @@ ActiveRecord::Schema.define(version: 20161126122630) do
     t.integer  "product_type"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.index ["name"], name: "index_products_on_name", using: :btree
   end
 
+  add_foreign_key "batches", "products", on_delete: :cascade
 end

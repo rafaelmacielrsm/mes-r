@@ -1,22 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1><%= Category.model_name.human.pluralize %></h1>
 
-<table>
+<table class="bordered highlight">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+    <tr class="row">
+      <th><%= Category.human_attribute_name(:name) %></th>
+      <th colspan="2">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="row">
+        <td style="width: 50%"><%= category.name %></td>
+        <td><%= link_to t('ui.btn-edit'), edit_category_path(category),
+            class: 'waves-effect waves-light btn' %></td>
+        <td>
+          <%= link_to t('ui.btn-delete'), category,method: :delete,
+              class: 'waves-effect waves-light btn',
+              data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to t('ui.btn-new-f', record: Category.model_name.human),
+    new_category_path, class: 'waves-effect waves-light btn' %>

@@ -1,0 +1,22 @@
+pt-BR:
+  # shared attribute names
+  attributes:
+    name: Nome
+    created_at: Criado em
+    updated_at: Modificado em
+  activerecord:
+    models:
+      product:
+        one: Produto
+        other: Produtos
+      category:
+        one: Categoria
+        other: Categorias
+    attributes:
+      product:
+        price: Preço
+      batch:
+        barcode: Código de Barra
+        expiration_date: Date de Vencimento
+        cost: Custo
+        quantity: Quantidade

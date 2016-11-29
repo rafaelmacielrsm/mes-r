@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Barcode:</strong>
+  <%= @batch.barcode %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @batch.expiration_date %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @batch.cost %>
+</p>
+
+<%= link_to 'Edit', edit_batch_path(@batch) %> |
+<%= link_to 'Back', batches_path %>

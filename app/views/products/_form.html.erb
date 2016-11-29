@@ -11,22 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="row">
+    <div class="input-field">
+      <%= f.text_field :name %>
+      <%= f.label :name %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
+  <div class="row">
+    <div class="input-field">
+      <%= f.text_field :price %>
+      <%= f.label :price %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :product_type %>
+<div class="row">
+  <div class="input-field">
     <%= f.number_field :product_type %>
+    <%= f.label :product_type %>
   </div>
+</div>
+
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn' %>
   </div>
 <% end %>

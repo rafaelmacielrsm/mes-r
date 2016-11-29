@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Batches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Batch.human_attribute_name :barcode %></th>
+      <th><%= Batch.human_attribute_name :expiration_date %></th>
+      <th><%= Batch.human_attribute_name :cost %></th>
+      <th><%= Batch.human_attribute_name :quantity %></th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @batches.each do |batch| %>
+      <tr>
+        <td><%= batch.barcode %></td>
+        <td><%= batch.expiration_date %></td>
+        <td><%= batch.cost %></td>
+        <td><%= batch.quantity %></td>
+        <td><%= link_to 'Show', batch, class: 'btn' %></td>
+        <td><%= link_to 'Edit', edit_batch_path(batch), class: 'btn' %></td>
+        <td><%= link_to 'Destroy', batch, method: :delete, class: 'btn',
+          data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Batch', new_batch_path, class: 'btn' %>

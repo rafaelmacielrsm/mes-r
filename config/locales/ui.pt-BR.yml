@@ -1,0 +1,7 @@
+pt-BR:
+  ui:
+    btn-show: Detalhes
+    btn-edit: Modificar
+    btn-delete: Deletar
+    btn-new-m: "Novo %{record}"
+    btn-new-f: 'Nova %{record}'
