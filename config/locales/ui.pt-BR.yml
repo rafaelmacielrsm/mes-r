@@ -5,3 +5,4 @@ pt-BR:
     btn-delete: Deletar
     btn-new-m: "Novo %{record}"
     btn-new-f: 'Nova %{record}'
+    btn-cancel: Cancelar

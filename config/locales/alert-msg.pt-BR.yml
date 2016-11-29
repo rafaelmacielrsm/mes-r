@@ -1,0 +1,6 @@
+pt-BR:
+  alert:
+    delete:
+      title: "Remover %{class}: <span class='primary'>%{name}</span>"
+      text: "<span class='primary'>IMPORTANTE</span>: você está preste a remover
+      o registro do sistema. Deseja realmente fazer essa ação?"
