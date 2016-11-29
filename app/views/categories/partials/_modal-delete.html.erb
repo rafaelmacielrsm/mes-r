@@ -1,0 +1,17 @@
+<div id="<%= "modal_#{category.id}" %>" class="modal">
+  <div class="modal-content">
+    <h4>
+      <%= sanitize t('alert.delete.title', name: category.name,
+          class: Category.model_name.human) %>
+    </h4>
+    <p><%= sanitize t('alert.delete.text') %></p>
+  </div>
+  <div class="modal-footer">
+    <%= link_to t('ui.btn-delete'), category, method: :delete,
+        class: 'modal-action modal-close waves-effect waves-purple btn-flat' %>
+    <a href="#!"
+      class="modal-action modal-close waves-effect waves-purple btn-flat ">
+      <%= t 'ui.btn-cancel' %>
+    </a>
+  </div>
+</div>

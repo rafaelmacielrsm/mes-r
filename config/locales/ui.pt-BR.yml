@@ -6,3 +6,5 @@ pt-BR:
     btn-new-m: "Novo %{record}"
     btn-new-f: 'Nova %{record}'
     btn-cancel: Cancelar
+    label:
+      actions: Ações

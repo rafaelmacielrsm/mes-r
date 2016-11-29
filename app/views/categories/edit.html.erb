@@ -1,6 +1,7 @@
-<h1>Editing Category</h1>
-
+<div class="row">
+  <h1 class="col s11"><%= t '.title' %></h1>
+  <div class="col s1">
+    <%= link_back(categories_path) %>
+  </div>
+</div>
 <%= render 'form', category: @category %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
