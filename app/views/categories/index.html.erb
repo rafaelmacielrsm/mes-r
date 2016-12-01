@@ -1,35 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= Category.model_name.human.pluralize %></h1>
+<div class="row" id="relative-position">
+  <h1 class="col s7 l9"><%= Category.model_name.human.pluralize %></h1>
+<%# search form %>
+  <%= render 'modules/search-form', url_path: categories_path %>
+</div> <%# end row %>
 
-<table class="bordered highlight">
-  <thead>
-    <tr class="row">
-      <th><%= Category.human_attribute_name(:name) %></th>
-      <th colspan="2"><%= t 'ui.label.actions' %></th>
-    </tr>
-  </thead>
+<%= render 'modules/fixed-btn', url: new_category_path %>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr class="row">
-        <td style="width: 50%"><%= category.name %></td>
-        <td><%= link_to t('ui.btn-edit'), edit_category_path(category),
-            class: 'waves-effect waves-light btn' %></td>
-        <td>
-          <!-- <%= link_to t('ui.btn-delete'), category,method: :delete,
-              class: 'waves-effect waves-light btn',
-              data: { confirm: 'Are you sure?' } %> -->
-          <a class="modal-trigger waves-effect waves-light btn"
-            href="<%= "#modal_#{category.id}" %>"><%= t 'ui.btn-delete' %></a>
-        </td>
-      </tr>
-      <%= render 'categories/partials/modal-delete', category: category %>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to t('ui.btn-new-f', record: Category.model_name.human),
-    new_category_path, class: 'waves-effect waves-light btn' %>
+<div id="table-container">
+  <%= render 'categories/partials/index-table', categories: @categories %>
+</div>

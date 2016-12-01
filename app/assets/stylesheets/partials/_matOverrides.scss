@@ -10,14 +10,14 @@
 }
 
 .btn, .btn-large{
-  background-color: $asc-color;
+  background-color: $app-primary-color;
 
   &:hover{
-    background-color: $asc-color-darker;
+    background-color: $app-primary-color-darker;
   }
 
   &:focus{
-    background-color: $asc-color;
+    background-color: $app-primary-color;
   }
 }
 

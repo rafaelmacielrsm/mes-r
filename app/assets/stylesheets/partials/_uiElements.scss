@@ -2,3 +2,10 @@
   position: relative;
   top: 3em;
 }
+
+#btn-color{
+  background-color: $asc-color;
+  &:hover{
+    background-color: $asc-color-darker;
+  }
+}

@@ -4,7 +4,17 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    if params[:query].present?
+      @categories = Category.where(['name LIKE ?', "%#{params[:query]}%"])
+      .order(:name)
+    else
+      @categories = Category.order('name ASC').all
+    end
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # GET /categories/1
