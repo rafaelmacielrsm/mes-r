@@ -17,7 +17,10 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'materialize-sass'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+
+gem 'material_icons'
+gem 'kaminari'
 
 
 # Use jquery as the JavaScript library

@@ -1,3 +1,7 @@
 $('#table-container').empty().hide().append(
   '<%= j render("categories/partials/index-table", categories: @categories) %>'
 ).fadeIn(250);
+
+$('#pagination-container').empty().hide().append(
+  '<%= j paginate @categories %>'
+).fadeIn(250);

@@ -2,12 +2,18 @@
 
 <div class="row" id="relative-position">
   <h1 class="col s7 l9"><%= Category.model_name.human.pluralize %></h1>
-<%# search form %>
+  <%# search form %>
   <%= render 'modules/search-form', url_path: categories_path %>
 </div> <%# end row %>
 
+<%# Floating button %>
 <%= render 'modules/fixed-btn', url: new_category_path %>
 
+<%# Pagination %>
+<div id="pagination-container">
+  <%= paginate @categories %>
+</div>
+<%# Records table %>
 <div id="table-container">
   <%= render 'categories/partials/index-table', categories: @categories %>
 </div>

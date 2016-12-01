@@ -6,9 +6,9 @@ class CategoriesController < ApplicationController
   def index
     if params[:query].present?
       @categories = Category.where(['name LIKE ?', "%#{params[:query]}%"])
-      .order(:name)
+      .order(:name).page(params[:page])
     else
-      @categories = Category.order('name ASC').all
+      @categories = Category.order('name ASC').page(params[:page])
     end
 
     respond_to do |format|
