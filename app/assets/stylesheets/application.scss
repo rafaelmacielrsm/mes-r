@@ -2,6 +2,7 @@
 @import "materialize";
 @import "font-awesome";
 @import "material_icons";
+@import "chosen";
 
 @import "partials/variables";
 @import "partials/base";
@@ -9,3 +10,4 @@
 @import "partials/uiElements";
 @import "partials/highlight";
 @import "partials/positioning";
+@import "partials/chosenOverrides"

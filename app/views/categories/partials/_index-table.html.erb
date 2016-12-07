@@ -13,11 +13,10 @@
         <td><%= link_to t('ui.btn-edit'), edit_category_path(category),
             class: 'waves-effect waves-light btn' %></td>
         <td>
-          <!-- <%= link_to t('ui.btn-delete'), category,method: :delete,
-              class: 'waves-effect waves-light btn',
-              data: { confirm: 'Are you sure?' } %> -->
           <a class="modal-trigger waves-effect waves-light btn"
-            href="<%= "#modal_#{category.id}" %>"><%= t 'ui.btn-delete' %></a>
+            href='<%= "#modal_#{category.id}" %>' onclick='set_query()'>
+            <%= t 'ui.btn-delete' %>
+          </a>
         </td>
       </tr>
       <%= render 'categories/partials/modal-delete', category: category %>

@@ -1,8 +1,9 @@
 <%# search form %>
   <%= form_tag url_path ,remote: true, method: :get, id: 'search' do %>
     <div class="input-field col s5 l3" id="search-bar">
-      <%= fa_icon 'search', class: 'prefix' %>
-      <%= text_field_tag :query, '',  onkeyup: "submit_search()" %>
+      <i class="material-icons prefix">search</i>
+      <%= text_field_tag :query, params[:query],  onkeyup: "submit_search()",
+        autocomplete: 'off' %>
       <%= label_tag :query, t('ui.label.search') %>
     </div>
   <% end %> <%# end search form %>

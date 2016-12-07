@@ -1,3 +1,4 @@
+// Changes on the navbar color
 .nav-wrapper{
   background-color: $app-primary-color-darker;
   ul{
@@ -9,6 +10,7 @@
   }
 }
 
+// Changes the buttons color scheme
 .btn, .btn-large{
   background-color: $app-primary-color;
 
@@ -21,7 +23,7 @@
   }
 }
 
-
+//Fields color changes
 /* label color */
  .input-field label {
   color: $field-color-secundary;
@@ -48,4 +50,9 @@
  /* icon prefix focus color */
  .input-field .prefix.active {
    color: $field-color;
+ }
+
+ //Pagination color
+ .pagination li.active{
+    background-color: $asc-color;
  }

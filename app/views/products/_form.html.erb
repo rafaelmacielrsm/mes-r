@@ -12,26 +12,27 @@
   <% end %>
 
   <div class="row">
-    <div class="input-field">
-      <%= f.text_field :name %>
+    <div class="input-field col s12">
+      <%= f.text_field :name, autocomplete: 'off' %>
       <%= f.label :name %>
     </div>
+
+    <div class="input-field col s12 l6">
+      <%= f.text_field :price, autocomplete: 'off' %>
+      <%= f.label :price %>
+    </div>
+
+    <div class="input-field col s12 l6">
+      <%= f.select :categories, options_for_select(categories),
+      {include_blank: true}, {class: 'chosen-select',
+        id: 'product_categories', data: {placeholder:
+          t('ui.choose_f_msg', obj: Category.model_name.human)}} %>
+      </div>
   </div>
 
   <div class="row">
-    <div class="input-field">
-      <%= f.text_field :price %>
-      <%= f.label :price %>
-    </div>
+    <%#= f.label :categories %>
   </div>
-
-<div class="row">
-  <div class="input-field">
-    <%= f.number_field :product_type %>
-    <%= f.label :product_type %>
-  </div>
-</div>
-
 
 
   <div class="actions">

@@ -9,3 +9,6 @@ pt-BR:
     label:
       actions: Ações
       search: Procurar...
+    no_result_msg: "Não foram encontrados resultados para: "
+    choose_f_msg: "Escolha a %{obj}"
+    choose_m_msg: "Escolha o %{obj}"

@@ -14,6 +14,10 @@
   <%= paginate @categories %>
 </div>
 <%# Records table %>
-<div id="table-container">
+<div class="has-modal" id="table-container">
   <%= render 'categories/partials/index-table', categories: @categories %>
 </div>
+
+<script type="text/javascript">
+  var query = "";
+</script>

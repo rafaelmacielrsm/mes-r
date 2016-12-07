@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'materialize-sass'
 gem 'font-awesome-rails'
+gem 'pry'
 
 gem 'material_icons'
 gem 'kaminari'

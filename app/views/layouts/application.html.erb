@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body id='<%= "#{params[:controller]}_#{params[:action]}" %>'>
     <%= render 'layouts/partials/navbar' %>
     <div class="container">
         <%= yield %>
