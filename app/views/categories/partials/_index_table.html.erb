@@ -7,7 +7,7 @@
   </thead>
 
   <tbody>
-    <% categories.each do |category| %>
+    <% collection.each do |category| %>
       <tr class="row">
         <td style="width: 50%"><%= category.name %></td>
         <td><%= link_to t('ui.btn-edit'), edit_category_path(category),
@@ -19,7 +19,7 @@
           </a>
         </td>
       </tr>
-      <%= render 'categories/partials/modal-delete', category: category %>
+      <%= render 'categories/partials/modal_delete', category: category %>
     <% end %>
   </tbody>
 </table>

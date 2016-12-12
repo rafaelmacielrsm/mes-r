@@ -1,15 +1,28 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:query].present?
+      @data_collection = Product.where(['name LIKE ?', "%#{params[:query]}%"])
+        .order(:name).page(params[:page])
+    else
+      @data_collection = Product.order('name ASC').page(params[:page])
+    end
+
+    respond_to do |format|
+      format.js {
+        render file: 'shared/update_table_and_pagination'
+      }
+      format.html
+    end
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.includes(:categories).find(params[:id])
   end
 
   # GET /products/new
@@ -58,7 +71,8 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url(query: params[:query]),
+        notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +85,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :product_type)
+      params.require(:product).
+        permit(:name, :price, :category_ids)
     end
 end

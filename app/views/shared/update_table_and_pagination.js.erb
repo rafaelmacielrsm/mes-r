@@ -1,0 +1,11 @@
+$('#table-container').empty().hide().append(
+  '<%= j render("#{params[:controller]}/partials/index_table", \
+  collection: @data_collection) %>'
+).fadeIn(250);
+
+$('#pagination-container').empty().hide().append(
+  '<%= j paginate @data_collection %>'
+).fadeIn(250);
+
+$('.dropdown-button').dropdown({hover: true});
+$('.modal').modal();

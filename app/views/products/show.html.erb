@@ -11,8 +11,10 @@
 </p>
 
 <p>
-  <strong>Product type:</strong>
-  <%= @product.product_type %>
+  <strong>Category: </strong>
+  <% @product.categories.each do |category| %>
+    <%= category.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

@@ -1,40 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="row" id="relative-position">
+  <h1 class="col s7 l9"><%= Product.model_name.human.pluralize %></h1>
+  <%# search form %>
+  <%= render 'modules/search-form', url_path: products_path %>
+</div> <%# end row %>
 
-<h1>Products</h1>
+<%# Floating button %>
+<%= render 'modules/fixed-btn', url: new_product_path %>
 
-<table class="bordered highlight">
-  <thead>
-    <tr class="row">
-      <th><%= Product.human_attribute_name(:name) %></th>
-      <th><%= Product.human_attribute_name(:price) %></th>
-      <th>Product type</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
+<%# Pagination %>
+<div id="pagination-container">
+  <%= paginate @data_collection %>
+</div>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr class="row">
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.product_type %></td>
-        <td><%= link_to 'Show', product,
-              class: 'waves-effect waves-light btn' %></td>
-        <td><%= link_to 'Edit', edit_product_path(product),
-            class: 'waves-effect waves-light btn' %></td>
-        <td>
-          <%= link_to 'Destroy', product, class: 'waves-effect waves-light btn',
-              method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path,
-    class: 'waves-effect waves-light btn' %>
+<%# Records Table %>
+<div class="has-modal" id="table-container">
+  <%= render 'products/partials/index_table', collection: @data_collection %>
+</div>
 
 <script type="text/javascript">
   var msg

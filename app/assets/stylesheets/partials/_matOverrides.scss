@@ -56,3 +56,32 @@
  .pagination li.active{
     background-color: $asc-color;
  }
+
+ //Date Picker
+ .picker__weekday-display{
+   background-color: $asc-color-darker;
+   letter-spacing: 0.5px;
+   font-size: 1.25rem;
+ }
+ .picker__date-display{
+   background-color: $asc-color;
+ }
+
+.picker__nav--prev,  .picker__nav--next{
+  transition: all ease-in-out 0.2s;
+  &:hover{
+    background-color: $asc-color-lighter;
+  }
+}
+
+.picker__day.picker__day--today{
+  color: $asc-color;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected{
+  background-color: $asc-color;
+}
+
+.picker__close, .picker__today{
+  color: $asc-color;
+}

@@ -1,0 +1,35 @@
+<table class="bordered highlight">
+  <thead>
+    <tr class="row">
+      <th style="width: 60%;"><%= Product.human_attribute_name(:name) %></th>
+      <th><%= Product.human_attribute_name(:price) %></th>
+      <th><%= t 'ui.label.actions' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% collection.each do |product| %>
+      <tr class="row">
+        <td style="word-break: break-all;"><%= product.name %></td>
+        <td><%= number_to_currency product.price %></td>
+        <td>
+          <a class='dropdown-button btn' data-activates='<%= "dropdown-#{product.id}" %>'>
+            <%= t 'ui.btn-option' %></a>
+          <ul id='<%= "dropdown-#{product.id}" %>' class='dropdown-content'>
+            <li>
+              <%= link_to t('ui.btn-show'), product, class: 'primary' %></li>
+            <li>
+              <%= link_to t('ui.btn-edit'), edit_product_path(product),
+                  class: 'primary' %></li>
+            <li class="divider"></li>
+            <li>
+              <a class="primary" href='<%= "#modal_#{product.id}" %>'
+                onclick='set_query()'> <%= t 'ui.btn-delete' %> </li>
+            </ul>
+          </a>
+        </td>
+      </tr>
+      <%= render 'products/partials/modal_delete', product: product %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,6 +1,12 @@
-<h1>Editing Product</h1>
+<div class="row">
+  <h1 class="col s11"><%= t '.title' %></h1>
+  <div class="col s1">
+    <%= link_back(products_path) %>
+  </div>
+</div>
 
 <%= render 'form', product: @product , categories: @categories%>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<script type="text/javascript">
+  var no_result_msg = "<%= t 'ui.no_result_msg' %>"
+</script>

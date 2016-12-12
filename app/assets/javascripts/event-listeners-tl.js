@@ -10,25 +10,15 @@ $(document).on('turbolinks:load', function() {
     chosen_setup();
   }
 
-
-  //refresh modal on refresh queries
-  if ( $('.has-modal').length > 0 ) {
-    var target = document.querySelector('#table-container');
-    changes_observer(target);
+  if ( $('.dropdown-button').length > 0 ) {
+    $('.dropdown-button').dropdown({hover: true});
   }
 
-
-
-
-//
-
-});
-
-function changes_observer(target) {
-  var observer = new MutationObserver(function(){
-    $('.modal').modal();
+  if ( $('.datepicker').length > 0 ) {
+    datetime_br_setup();
+  }
+  $('.datepicker').pickadate({
+  selectMonths: true, // Creates a dropdown to control month
+  selectYears: 15 // Creates a dropdown of 15 years to control year
   });
-  observer.observe(target, { childList: true, subtree: true });
-
-  return observer;
-}
+});

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row" id="relative-position">
   <h1 class="col s7 l9"><%= Category.model_name.human.pluralize %></h1>
   <%# search form %>
@@ -11,11 +9,11 @@
 
 <%# Pagination %>
 <div id="pagination-container">
-  <%= paginate @categories %>
+  <%= paginate @data_collection %>
 </div>
 <%# Records table %>
 <div class="has-modal" id="table-container">
-  <%= render 'categories/partials/index-table', categories: @categories %>
+  <%= render 'categories/partials/index_table', collection: @data_collection %>
 </div>
 
 <script type="text/javascript">

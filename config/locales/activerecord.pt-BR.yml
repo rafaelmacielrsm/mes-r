@@ -12,9 +12,13 @@ pt-BR:
       category:
         one: Categoria
         other: Categorias
+      batch:
+        one: Lote
+        other: Lotes
     attributes:
       product:
         price: Preço
+        category: Categoria
       batch:
         barcode: Código de Barra
         expiration_date: Date de Vencimento
