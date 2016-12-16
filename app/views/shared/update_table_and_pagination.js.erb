@@ -1,10 +1,10 @@
 $('#table-container').empty().hide().append(
   '<%= j render("#{params[:controller]}/partials/index_table", \
-  collection: @data_collection) %>'
+  collection: data) %>'
 ).fadeIn(250);
 
 $('#pagination-container').empty().hide().append(
-  '<%= j paginate @data_collection %>'
+  '<%= j paginate data %>'
 ).fadeIn(250);
 
 $('.dropdown-button').dropdown({hover: true});

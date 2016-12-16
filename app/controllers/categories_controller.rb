@@ -5,14 +5,17 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     if params[:query].present?
-      @data_collection = Category.where(['name LIKE ?', "%#{params[:query]}%"])
+      @categories = Category.where(['name LIKE ?', "%#{params[:query]}%"])
       .order(:name).page(params[:page])
     else
-      @data_collection = Category.order('name ASC').page(params[:page])
+      @categories = Category.order('name ASC').page(params[:page])
     end
 
     respond_to do |format|
-      format.js {render file: 'shared/update_table_and_pagination.js.erb'}
+      format.js {
+        render file: 'shared/update_table_and_pagination',
+        locals: {data: @categories}
+      }
       format.html
     end
   end

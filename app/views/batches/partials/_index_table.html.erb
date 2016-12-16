@@ -1,0 +1,46 @@
+<table class="bordered highlight">
+  <thead>
+    <tr class="row">
+      <th><%= Product.human_attribute_name :name %></th>
+      <th><%= Batch.human_attribute_name :barcode %></th>
+      <th><%= Batch.human_attribute_name :expiration_date %></th>
+      <th><%= Batch.human_attribute_name :cost %></th>
+      <th><%= Batch.human_attribute_name :quantity %></th>
+      <th><%= t 'ui.label.actions' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% collection.each do |batch| %>
+      <tr>
+        <td><%= batch.product_name %></td>
+        <td><%= batch.barcode %></td>
+        <td><%= l batch.expiration_date %></td>
+        <td><%= batch.cost %></td>
+        <td><%= batch.quantity %></td>
+        <td>
+          <%# dropdown-button %>
+          <a class='dropdown-button btn' data-activates='<%= "dropdown-#{batch.id}" %>'>
+            <%= t 'ui.btn-option' %></a>
+            <%# dropdown options %>
+            <ul id='<%= "dropdown-#{batch.id}" %>' class='dropdown-content'>
+              <li>
+                <%= link_to t('ui.btn-show'), batch, class: 'primary' %></li>
+              <li>
+                <%= link_to t('ui.btn-edit'), edit_batch_path(batch),
+                    class: 'primary' %></li>
+              <li class="divider"></li>
+              <li>
+                <a class="primary" href='<%= "#modal_#{batch.id}" %>'
+                  onclick='set_query()'> <%= t 'ui.btn-delete' %> </li>
+            </ul>
+        </td>
+        <!-- <td><%= link_to 'Show', batch, class: 'btn' %></td>
+        <td><%= link_to 'Edit', edit_batch_path(batch), class: 'btn' %></td>
+        <td><%= link_to 'Destroy', batch, method: :delete, class: 'btn',
+          data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+      <%= render 'batches/partials/modal_delete', batch: batch %>
+    <% end %>
+  </tbody>
+</table>

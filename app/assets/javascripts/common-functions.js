@@ -28,7 +28,7 @@ function dropdown_setup() {
 function datetime_br_setup() {
   $('.datepicker').pickadate({
     selectMonths: true,//Creates a dropdown to control month
-    selectYears: 5,//Creates a dropdown of 15 years to control year
+    selectYears: 10,//Creates a dropdown of 15 years to control year
     //The title label to use for the month nav buttons
     labelMonthNext: 'Pŕoximo Mês',
     labelMonthPrev: 'Mês Passado',

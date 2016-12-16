@@ -23,6 +23,8 @@ gem 'pry'
 gem 'material_icons'
 gem 'kaminari'
 
+gem 'ffaker'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

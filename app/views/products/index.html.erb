@@ -9,12 +9,12 @@
 
 <%# Pagination %>
 <div id="pagination-container">
-  <%= paginate @data_collection %>
+  <%= paginate @products %>
 </div>
 
 <%# Records Table %>
 <div class="has-modal" id="table-container">
-  <%= render 'products/partials/index_table', collection: @data_collection %>
+  <%= render 'products/partials/index_table', collection: @products %>
 </div>
 
 <script type="text/javascript">

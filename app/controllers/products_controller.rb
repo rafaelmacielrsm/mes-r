@@ -5,15 +5,16 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if params[:query].present?
-      @data_collection = Product.where(['name LIKE ?', "%#{params[:query]}%"])
+      @products = Product.where(['name LIKE ?', "%#{params[:query]}%"])
         .order(:name).page(params[:page])
     else
-      @data_collection = Product.order('name ASC').page(params[:page])
+      @products = Product.order('name ASC').page(params[:page])
     end
 
     respond_to do |format|
       format.js {
-        render file: 'shared/update_table_and_pagination'
+        render file: 'shared/update_table_and_pagination',
+          locals:{ data: @products }
       }
       format.html
     end

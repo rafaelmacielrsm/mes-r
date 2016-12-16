@@ -128,3 +128,12 @@
   color: $asc-color;
   display: block;
 }
+
+///
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen
+  and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .chosen-container-single .chosen-search input[type="text"] {
+    background: none !important;
+  }
+}

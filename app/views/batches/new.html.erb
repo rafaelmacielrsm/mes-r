@@ -1,5 +1,12 @@
-<h1>New Batch</h1>
+<div class="row">
+  <h1 class="col s11"><%= t '.title' %></h1>
+  <div class="col s1">
+    <%= link_back(batches_path) %>
+  </div>
+</div>
 
-<%= render 'form', batch: @batch %>
+<%= render 'form', batch: @batch, products: @products %>
 
-<%= link_to 'Back', batches_path %>
+<script type="text/javascript">
+  var no_result_msg = "<%= t 'ui.no_result_msg' %>"
+</script>

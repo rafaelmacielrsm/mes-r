@@ -1,0 +1,21 @@
+<% modal_id = "modal_#{batch.id}" %>
+<div id="<%= modal_id %>" class="modal">
+  <div class="modal-content">
+    <h4>
+      <%= sanitize t('alert.delete.title', name: '',
+          class: Batch.model_name.human) %>
+    </h4>
+    <h6><%= sanitize t "alert.delete.product_details",
+      product_name: batch.product_name %></h6>
+    <h6><%= sanitize t "alert.delete.barcode_details", barcode: batch.barcode %></h6>
+    <p><%= sanitize t('alert.delete.text') %></p>
+  </div>
+  <div class="modal-footer">
+    <%= link_to t('ui.btn-delete'), batch, method: :delete,
+        class: 'modal-action modal-close waves-effect waves-purple btn-flat',
+          onclick: "add_query_to_params('#{modal_id}')" %>
+    <div class="modal-action modal-close waves-effect waves-purple btn-flat ">
+      <%= t 'ui.btn-cancel' %>
+    </div>
+  </div>
+</div>

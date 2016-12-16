@@ -1,36 +1,18 @@
 <div class="row" id="relative-position">
   <h1 class="col s7 l9"><%= Batch.model_name.human.pluralize %></h1>
   <%# search form %>
-  <%#= render 'modules/search-form', url_path: products_path %>
+  <%= render 'modules/search-form', url_path: batches_path %>
 </div> <%# end row %>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= Batch.human_attribute_name :barcode %></th>
-      <th><%= Batch.human_attribute_name :expiration_date %></th>
-      <th><%= Batch.human_attribute_name :cost %></th>
-      <th><%= Batch.human_attribute_name :quantity %></th>
-      <th colspan="3"><%= t 'ui.label.actions' %></th>
-    </tr>
-  </thead>
+<%# Floating Button %>
+<%= render 'modules/fixed-btn', url: new_batch_path %>
 
-  <tbody>
-    <% @batches.each do |batch| %>
-      <tr>
-        <td><%= batch.barcode %></td>
-        <td><%= batch.expiration_date %></td>
-        <td><%= batch.cost %></td>
-        <td><%= batch.quantity %></td>
-        <td><%= link_to 'Show', batch, class: 'btn' %></td>
-        <td><%= link_to 'Edit', edit_batch_path(batch), class: 'btn' %></td>
-        <td><%= link_to 'Destroy', batch, method: :delete, class: 'btn',
-          data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%# Pagination %>
+<div id="pagination-container">
+  <%= paginate @batches %>
+</div>
 
-<br>
-
-<%= link_to 'New Batch', new_batch_path, class: 'btn' %>
+<%# Records Table %>
+<div class="has-modal" id="table-container">
+  <%= render 'batches/partials/index_table', collection: @batches %>
+</div>

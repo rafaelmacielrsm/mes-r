@@ -17,8 +17,8 @@ $(document).on('turbolinks:load', function() {
   if ( $('.datepicker').length > 0 ) {
     datetime_br_setup();
   }
-  $('.datepicker').pickadate({
-  selectMonths: true, // Creates a dropdown to control month
-  selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
+  // $('.datepicker').pickadate({
+  // selectMonths: true, // Creates a dropdown to control month
+  // selectYears: 15 // Creates a dropdown of 15 years to control year
+  // });
 });

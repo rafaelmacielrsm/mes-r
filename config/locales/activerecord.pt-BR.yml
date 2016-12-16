@@ -21,6 +21,7 @@ pt-BR:
         category: Categoria
       batch:
         barcode: Código de Barra
-        expiration_date: Date de Vencimento
+        expiration_date: Data de Vencimento
         cost: Custo
         quantity: Quantidade
+        product_id: Produto
