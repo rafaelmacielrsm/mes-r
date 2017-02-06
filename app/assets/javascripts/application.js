@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require chosen.jquery.min
+//= require jquery.mask
 //= require_tree .

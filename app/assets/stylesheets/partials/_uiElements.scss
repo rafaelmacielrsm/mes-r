@@ -9,3 +9,12 @@
     background-color: $asc-color-darker;
   }
 }
+
+#chosen-with-icons {
+  width: calc(100% - 3rem);
+  margin-left: 3rem;
+}
+
+#chosen-label-with-icon {
+  left: 3.75rem;
+}

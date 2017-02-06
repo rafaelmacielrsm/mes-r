@@ -16,7 +16,7 @@
         <td><%= batch.product_name %></td>
         <td><%= batch.barcode %></td>
         <td><%= l batch.expiration_date %></td>
-        <td><%= batch.cost %></td>
+        <td><%= number_to_currency batch.cost %></td>
         <td><%= batch.quantity %></td>
         <td>
           <%# dropdown-button %>

@@ -25,6 +25,9 @@ gem 'kaminari'
 
 gem 'ffaker'
 
+#ElasticSearch
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

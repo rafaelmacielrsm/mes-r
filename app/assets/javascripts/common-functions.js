@@ -10,8 +10,13 @@ function add_query_to_params(id_selector){
 }
 
 function chosen_setup(){
-  $(".chosen-select").chosen({width: "100%", no_results_text: no_result_msg});
+  if (typeof no_result_msg !== 'undefined') {
+    $(".chosen-select").chosen({width: "100%", no_results_text: no_result_msg});
+  }else{
+    $(".chosen-select").chosen({width: "100%"});
+  }
 }
+
 
 function dropdown_setup() {
   $('.dropdown-button').dropdown({

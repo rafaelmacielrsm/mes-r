@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
   Materialize.updateTextFields();
 
   // chosen call product form
-  if (typeof no_result_msg !== 'undefined') {
+  if ( $('.chosen-select').length > 0 ) {
     chosen_setup();
   }
 
@@ -21,4 +21,6 @@ $(document).on('turbolinks:load', function() {
   // selectMonths: true, // Creates a dropdown to control month
   // selectYears: 15 // Creates a dropdown of 15 years to control year
   // });
+
+  $('.money').mask('000.000.000.000.000,00', {reverse: true});
 });
