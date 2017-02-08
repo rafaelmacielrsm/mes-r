@@ -18,7 +18,6 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'materialize-sass'
 gem 'font-awesome-rails'
-gem 'pry'
 
 gem 'material_icons'
 gem 'kaminari'
@@ -46,6 +45,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

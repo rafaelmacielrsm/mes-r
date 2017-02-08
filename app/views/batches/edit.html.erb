@@ -1,4 +1,10 @@
-<h1>Editing Batch</h1>
+<div class="row">
+  <h1 class="col s11"><%= t '.title' %></h1>
+  <div class="col s1">
+    <%= link_back(batches_path) %>
+  </div>
+</div>
+
 
 <%= render 'form', batch: @batch, products: @products %>
 

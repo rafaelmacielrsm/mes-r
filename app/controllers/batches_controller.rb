@@ -4,18 +4,10 @@ class BatchesController < ApplicationController
   # GET /batches
   # GET /batches.json
   def index
-    if params[:query].present?
-      @batches = Batch.joins(:product)
-        .where(['products.name LIKE ?', "%#{params[:query]}%"])
-        .select("products.name as product_name", "batches.*")
-        .order("product_name ASC, barcode ASC")
-        .page(params[:page])
-    else
-      @batches = Batch.joins(:product)
-        .select("products.name as product_name", "batches.*")
-        .order("product_name ASC, barcode ASC")
-        .page(params[:page])
-    end
+    # @batches = Batch.index_query(params[:query], params[:page])
+    @batches = params[:query].present? ? Batch.es_query(params[:query],\
+      params[:page]) : Batch.index_query(params[:query], params[:page])
+
     respond_to do |format|
       format.js{
         render file: 'shared/update_table_and_pagination',
@@ -45,7 +37,6 @@ class BatchesController < ApplicationController
   # POST /batches.json
   def create
     @batch = Batch.new(batch_params)
-
     respond_to do |format|
       if @batch.save
         format.html { redirect_to batches_path,
@@ -90,6 +81,7 @@ class BatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def batch_params
+      params[:batch][:cost].gsub!(/[.,]/, {'.' => '', ',' => '.'})
       params.require(:batch)
         .permit(:barcode, :expiration_date, :cost, :quantity, :product_id)
     end

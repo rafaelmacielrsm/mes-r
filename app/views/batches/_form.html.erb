@@ -43,13 +43,15 @@
   <div class="input-field col s12 l6">
     <%= fa_icon 'calendar', class: 'prefix' %>
     <%= f.label :expiration_date %>
-    <%= f.text_field :expiration_date, class: 'datepicker'%>
+    <%= f.text_field :expiration_date,
+        value: (batch.new_record? ? '' : l(batch.expiration_date)),
+        class: 'datepicker'%>
   </div>
 
   <div class="input-field col s12 l6">
     <%= fa_icon 'dollar', class: 'prefix' %>
     <%= f.label :cost %>
-    <%= f.text_field :cost, data: {mask: "00/00"}, class: 'money'  %>
+    <%= f.text_field :cost, class: 'money'  %>
   </div>
 </div> <%# end row 3 %>
 
