@@ -5,8 +5,9 @@ class BatchesController < ApplicationController
   # GET /batches.json
   def index
     # @batches = Batch.index_query(params[:query], params[:page])
-    @batches = params[:query].present? ? Batch.es_query(params[:query],\
-      params[:page]) : Batch.index_query(params[:query], params[:page])
+    @batches = Batch.es_query(params[:query] ||= '', params[:page])
+    # @batches = params[:query].present? ? Batch.es_query(params[:query],\
+    #   params[:page]) : Batch.index_query(params[:query], params[:page])
 
     respond_to do |format|
       format.js{
