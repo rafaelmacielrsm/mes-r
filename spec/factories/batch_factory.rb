@@ -4,6 +4,6 @@ FactoryGirl.define do
       quantity 5
       expiration_date { Date.today + 2.year }
       cost 1.23
-      product
+      association :product
   end
 end

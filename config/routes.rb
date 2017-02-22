@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :batches
+  resources :batches, except: :show
   resources :categories, except: :show do
     collection do
       get :query

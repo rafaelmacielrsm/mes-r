@@ -26,12 +26,12 @@ class BatchesController < ApplicationController
   # GET /batches/new
   def new
     @batch = Batch.new
-    @products = Product.all.map { |product| [product.name, product.id] }
+    @products = products_for_selection
   end
 
   # GET /batches/1/edit
   def edit
-    @products = Product.all.map { |product| [product.name, product.id] }
+    @products = products_for_selection
   end
 
   # POST /batches
@@ -44,6 +44,7 @@ class BatchesController < ApplicationController
           notice: 'Batch was successfully created.' }
         format.json { render :show, status: :created, location: @batch }
       else
+        @products = products_for_selection
         format.html { render :new }
         format.json { render json: @batch.errors, status: :unprocessable_entity }
       end
@@ -55,7 +56,7 @@ class BatchesController < ApplicationController
   def update
     respond_to do |format|
       if @batch.update(batch_params)
-        format.html { redirect_to @batch, notice: 'Batch was successfully updated.' }
+        format.html { redirect_to batches_path, notice: 'Batch was successfully updated.' }
         format.json { render :show, status: :ok, location: @batch }
       else
         format.html { render :edit }
@@ -85,5 +86,9 @@ class BatchesController < ApplicationController
       params[:batch][:cost].gsub!(/[.,]/, {'.' => '', ',' => '.'})
       params.require(:batch)
         .permit(:barcode, :expiration_date, :cost, :quantity, :product_id)
+    end
+
+    def products_for_selection
+      Product.all.map { |product| [product.name, product.id] }
     end
 end
