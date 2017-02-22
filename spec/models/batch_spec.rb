@@ -145,4 +145,45 @@ RSpec.describe Batch, type: :model do
       end
     end
   end
+
+  describe '#es_query', elasticsearch: true do
+    include_context 'elasticsearch setup', ['1_Prod',
+      '2_Prod', '3_Prod', '4_Prod', '5_Prod', '6_Prod']
+
+    context 'when there is more records than the per_page value' do
+      it 'has the default per_page value in the first page' do
+        expect(Batch.es_query('', 1).length).to eq(Batch.default_per_page)
+      end
+
+      it 'has some records in the last page' do
+        record_count = Batch.count % Batch.default_per_page
+        expect(Batch.es_query( '', Batch.page.total_pages).length ).
+          to eq(record_count)
+      end
+    end
+  end
+
+  describe '#index_query', elasticsearch: true do
+    include_context 'elasticsearch setup', ['1_Prod',
+      '2_Prod', '3_Prod', '4_Prod', '5_Prod', '6_Prod']
+
+    context 'when there is no query param' do
+      it 'returns all records scoped by page' do
+        expect(Batch.index_query( ).length).to eq(Batch.default_per_page)
+      end
+
+      it 'orders by product name when no params are given' do
+        expect(Batch.index_query( ).first.product_name).to eq('1_Prod')
+      end
+
+      it 'returns the records on a diferent page' do
+        expect(Batch.index_query('', 2).first.product_name).to eq('6_Prod')
+      end
+
+      it 'orders by a given column' do
+        expect(Batch.index_query('', 1, 'id', 'desc').first.id).
+          to eq(Batch.last.id)
+      end
+    end
+  end
 end

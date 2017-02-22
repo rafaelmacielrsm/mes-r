@@ -3,8 +3,8 @@ shared_context "elasticsearch setup" do |prod_array = ['AAS', 'Brontek 10ML']|
     # create indices
     Batch.__elasticsearch__.create_index!
     # instantiate the dataset
-    prod_array.each do
-        create(:batch, product: create(:product, name: 'Brontek 10ML'))
+    prod_array.each do |name|
+        create(:batch, product: create(:product, name: name))
     end
     # refresh the indices
     Batch.__elasticsearch__.refresh_index!
