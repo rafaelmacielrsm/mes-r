@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20161128180758) do
 
-  create_table "batches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "batches", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "barcode"
     t.integer  "quantity"
@@ -24,20 +27,20 @@ ActiveRecord::Schema.define(version: 20161128180758) do
     t.index ["product_id"], name: "index_batches_on_product_id", using: :btree
   end
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories_products", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories_products", id: false, force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "product_id",  null: false
     t.index ["category_id", "product_id"], name: "index_categories_products_on_category_id_and_product_id", using: :btree
     t.index ["product_id", "category_id"], name: "index_categories_products_on_product_id_and_category_id", using: :btree
   end
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price",        precision: 8, scale: 2
     t.integer  "product_type"
