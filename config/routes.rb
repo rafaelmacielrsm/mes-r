@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :useres
+  root to: 'home#index'
   resources :batches, except: :show
   resources :categories, except: :show do
     collection do
