@@ -57,6 +57,7 @@ inflect.uncountable %w( tórax tênis ônibus lápis fênix )
   inflect.irregular 'product', 'products'
   inflect.irregular 'category', 'categories'
   inflect.irregular 'batch', 'batches'
+  inflect.irregular 'user', 'users'
 end
 
 # These inflection rules are supported but not enabled by default:

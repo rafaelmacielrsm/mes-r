@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :useres
+  devise_for :users
   root to: 'home#index'
   resources :batches, except: :show
   resources :categories, except: :show do
